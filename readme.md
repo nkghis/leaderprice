@@ -95,3 +95,13 @@ Entrer les identifiants ce dessus.
 ## Usage
 
 Utiliser le commentaire du code.
+
+- Creer des permissions grace à la console. Les permissions sont precedées par les prefixes suivants : (add, view, edit, delete) suivi de (_) suivi du nom.
+La syntaxe pour creer les permissions est : `php artisan auth:permission {name} {--R|remove}`
+  * Paramètre {name} represente le model sur lequel les permissions seront appliquées. Par convention il faudra le mettre au pluriel.
+    Exemple : `php artisan auth:permission produits`
+    Resultat : les permissions suivantes seront creées : `add_produits, view_produits, edit_produits, delete_produits`
+    
+  * Paramètre {--R ou remove} est utilisé pour supprimer des permissions.
+    Exemple : `php artisan auth:permission produits --R` ou `php artisan auth:permission produits remove`
+    Resultat : les permissions suivantes seront supprimées : `add_produits, view_produits, edit_produits, delete_produits`
