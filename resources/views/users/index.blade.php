@@ -2,6 +2,11 @@
 
 @section('title', 'Gestion des utilisateurs')
 
+@section('css')
+    <link href="{{ asset('vendor') }}/DataTables/datatables.css" rel="stylesheet">
+@endsection
+
+
 @section('content')
     @include('layouts.headers.cards')
 
@@ -85,4 +90,93 @@
         @endrole
         @include('layouts.footers.auth')
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('vendor') }}/DataTables/datatables.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#data-table').DataTable({
+
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                },
+
+                "order": [[ 0, 'desc' ]]
+
+
+            });
+        } );
+    </script>
+
+
+ {{--   DataTable Server Side--}}
+    {{--<script>
+
+        $(document).ready( function () {
+            var table = $('#data-table').DataTable({
+
+                "sAjaxSource": "{{ route('user.list') }}",
+                "sAjaxDataProp": "",
+                "order": [ 0, "desc" ],
+                "aoColumnDefs": [
+
+                ],
+                "aoColumns": [
+
+                    { "mData": "id"},
+                    { "mData": "name" },
+                    { "mData": "email" },
+
+
+                    {
+                        "mData": null,
+                        "bSortable": false,
+                        "mRender": function(data, type, full) {
+                            return '<div class="dropdown">'+
+                                '                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
+                                '                          <i class="fas fa-ellipsis-v"></i>'+
+                                '                        </a>'+
+                                '                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">'+
+                                '                          <a class="dropdown-item" href=/admin/livraisons/distributions/'+ full.id+'>'+'Enlever'+'</a>'+
+                                '                        </div>'
+                        }
+                    }
+                ],
+
+
+                language: {
+                    /*url: '//cdn.datatables.net/plug-ins/1.10.16/i18n/French.json'*/
+                    sProcessing: "Traitement en cours...",
+                    sSearch: "Rechercher&nbsp;:",
+                    sLengthMenu: "Afficher _MENU_ &eacute;l&eacute;ments",
+                    sInfo: "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+                    sInfoEmpty: "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+                    sInfoFiltered: "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                    sInfoPostFix: "",
+                    sLoadingRecords: "Chargement en cours...",
+                    sZeroRecords: "Aucun &eacute;l&eacute;ment &agrave; afficher",
+                    sEmptyTable: "Aucune donn&eacute;e disponible dans le tableau",
+                    oPaginate: {
+                        sFirst: "Premier",
+                        sPrevious: "Pr&eacute;c&eacute;dent",
+                        sNext: "Suivant",
+                        sLast: "Dernier"
+                    },
+                    oAria: {
+                        sSortAscending: ": activer pour trier la colonne par ordre croissant",
+                        sSortDescending: ": activer pour trier la colonne par ordre d&eacute;croissant"
+                    }
+                },
+
+
+            })
+        });
+
+
+
+
+
+    </script>--}}
 @endsection

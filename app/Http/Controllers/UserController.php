@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use DB;
+//use Yajra\DataTables\Facades\DataTables;
+
 
 class UserController extends Controller
 {
@@ -19,11 +20,11 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $result = User::orderBy('id','DESC')->paginate(5);
-        //dd($result);
-        return view('users.index',compact('result'))
 
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $result = User::latest()->paginate();;
+
+        return view('users.index',compact('result'));
+
     }
 
     /**
@@ -47,7 +48,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+
         $this->validate($request, [
 
             'name' => 'required',
@@ -58,7 +59,7 @@ class UserController extends Controller
         ]);
 
         $input = $request->all();
-        //dd($input);
+
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
@@ -138,4 +139,22 @@ class UserController extends Controller
         return redirect()->route('user.index')->with('success','Utilisateur supprimé avec succès');
 
     }
+
+    public function usersList()
+    {
+        $data = User::latest()->get();
+        return response()->json($data);/*Datatables::of($data)
+            ->addIndexColumn()
+            ->addColumn('actions', function ($row){
+
+                $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>';
+                $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>';
+                return $btn;
+            })
+            ->rawColumns(['actions'])
+            ->make(true);*/
+    }
+
+
+
 }

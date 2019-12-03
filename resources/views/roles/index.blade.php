@@ -3,6 +3,11 @@
 {{--Section Titre--}}
 @section('title', 'Gestion des rôles')
 
+@section('css')
+    <link href="{{ asset('vendor') }}/DataTables/datatables.css" rel="stylesheet">
+@endsection
+
+
 {{--Section Corps de la page--}}
 @section('content')
 
@@ -81,8 +86,23 @@
             </div>
         </div>
     @else
-                @include('error-permission')
+    @include('error-permission')
     @endrole
         @include('layouts.footers.auth')
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('vendor') }}/DataTables/datatables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#data-table').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                },
+
+                "order": [[ 0, 'desc' ]]
+            });
+        } );
+    </script>
 @endsection
