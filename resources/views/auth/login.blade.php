@@ -67,7 +67,7 @@
                         </div>
                     </div>
 
-                    <p class="mt-5 mb-4 text-muted">&copy; Icône Communication - 2020 - info@iconecom.net</p>
+                    <p class="mt-5 mb-4 text-muted">&copy; Icône Communication - {{ now()->year }} - info@iconecom.net</p>
                 </form>
                 {{--</div>--}}
                 {{--</div>--}}
