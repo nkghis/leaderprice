@@ -12,6 +12,31 @@ body {
     padding-bottom: 40px;
     background-color: rgba(245, 152, 102, 0);
     background-image: url("../images/background.jpg");
+     /* Image is centered vertically and horizontally at all times */
+    background-position: center center;
+
+    /* Image doesn't repeat */
+    background-repeat: no-repeat;
+
+    /* Makes the image fixed in the viewport so that it doesn't move when
+     the content height is greater than the image height */
+    background-attachment: fixed;
+
+    background-size: cover; /* version standardisée */
+
+
+
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+
+}
+
+/* For mobile devices*/
+@media only screen and (max-width: 767px) {
+    body {
+        /* The file size of this background image is 93% smaller
+         * to improve page load speed on mobile internet connections */
+        background-image: url(../images/background2.jpg);
+    }
 }
 
 .form-signin {
