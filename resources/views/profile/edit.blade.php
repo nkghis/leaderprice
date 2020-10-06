@@ -2,8 +2,8 @@
 
 @section('content')
     @include('users.partials.header', [
-        'title' => __('Hello') . ' '. auth()->user()->name,
-        'description' => __('This is your profile page. You can see the progress you\'ve made with your work and manage your projects or assigned tasks'),
+        'title' => __('Bonjour') . ' '. auth()->user()->name,
+        'description' => __('Ceci est votre page de profil'),
         'class' => 'col-lg-7'
     ])   
 
@@ -15,7 +15,7 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <a href="#">
-                                    <img src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                                    <img src="{{ asset('images') }}/user.jpg" class="rounded-circle">
                                 </a>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                                    <div>
+                                   {{-- <div>
                                         <span class="heading">22</span>
                                         <span class="description">{{ __('Friends') }}</span>
                                     </div>
@@ -41,15 +41,15 @@
                                     <div>
                                         <span class="heading">89</span>
                                         <span class="description">{{ __('Comments') }}</span>
-                                    </div>
+                                    </div>--}}
                                 </div>
                             </div>
                         </div>
                         <div class="text-center">
                             <h3>
-                                {{ auth()->user()->name }}<span class="font-weight-light">, 27</span>
+                                {{ auth()->user()->name }}<span class="font-weight-light"></span>
                             </h3>
-                            <div class="h5 font-weight-300">
+                            {{--<div class="h5 font-weight-300">
                                 <i class="ni location_pin mr-2"></i>{{ __('Bucharest, Romania') }}
                             </div>
                             <div class="h5 mt-4">
@@ -60,7 +60,7 @@
                             </div>
                             <hr class="my-4" />
                             <p>{{ __('Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.') }}</p>
-                            <a href="#">{{ __('Show more') }}</a>
+                            <a href="#">{{ __('Show more') }}</a>--}}
                         </div>
                     </div>
                 </div>

@@ -16,3 +16,19 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('enrolements','EnrolementController')->only([
+    'store'
+]);
+
+
+/* Auth for API Auth route*/
+/*Route::group(['middleware' => ['auth:api']],function (){
+
+    Route::resource('enrolements','EnrolementController')->only([
+        'store'
+    ]);
+
+
+});*/
+

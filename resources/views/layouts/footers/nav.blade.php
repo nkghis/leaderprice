@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6 mx-auto">
         <div class="copyright text-center text-xl-center text-muted">
-            &copy; {{ now()->year }} <a href="http://www.iconecom.net" class="font-weight-bold ml-1" target="_blank">Icône Communication</a> {{--&amp;--}}
+            &copy; {{ now()->year }} <a href="http://www.ics.ci" class="font-weight-bold ml-1" target="_blank">Ivoire Cartes Systèmes</a> {{--&amp;--}}
           {{--  <a href="https://www.updivision.com" class="font-weight-bold ml-1" target="_blank">Updivision</a>--}}
         </div>
     </div>
