@@ -106,22 +106,29 @@
                         </ul>
                     </div>
                 </li>--}}
-
+                @hasanyrole('Admin|Agent')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('enrolements.index') }}">
                         <i class="ni ni-planet text-blue"></i> {{ __('Enrôlement') }}
                     </a>
                 </li>
+                @endhasanyrole
+
+                @hasanyrole('Admin|Superviseur')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('campagnes.index') }}">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Campagne') }}
                     </a>
                 </li>
+                @endhasanyrole
+
+                @hasanyrole('Admin|Partenaire')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('partenaires.index') }}">
                         <i class="ni ni-key-25 text-info"></i> {{ __('Partenaire') }}
                     </a>
                 </li>
+                @endhasanyrole
                {{-- <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}
